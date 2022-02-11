@@ -1,0 +1,10 @@
+.commitlintrc.js
+.editorconfig
+.eslintignore
+.eslintrc.js
+.gitignore
+.prettierignore
+tailwind.config.js
+yarn.lock
+tsconfig.json
+/node_modules
