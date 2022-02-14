@@ -1,8 +1,8 @@
 {
   "name": "formily-antd-component-extends",
-  "version": "1.0.1",
-  "main":"dist/index.js",
-  "repository":"https://github.com/anbingyang/formily-antd-extends",
+  "version": "1.0.2",
+  "main": "dist/index.js",
+  "repository": "https://github.com/anbingyang/formily-antd-extends",
   "dependencies": {
     "@types/node": "^14.14.14",
     "@types/react": "^17.0.0",
@@ -13,8 +13,10 @@
     "react-dom": "17.x",
     "typescript": "^4.5.5"
   },
-
-  "files":["dist","src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts --clean"
   },
@@ -29,9 +31,10 @@
     "errorMsg": "请规范提交分支命名"
   },
   "devDependencies": {
-    "tsup": "^5.11.13",
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.11.0",
+    "@typescript-eslint/parser": "^5.11.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^7.0.0",
@@ -48,6 +51,7 @@
     "prettier": "^2.2.1",
     "stylelint": "^13.9.0",
     "stylelint-config-recommended": "^3.0.0",
+    "tsup": "^5.11.13",
     "validate-branch-name": "^1.0.6"
   }
 }
