@@ -1,7 +1,7 @@
 # formily-antd-extends
-##formilyV2 antd的扩展表单组件
+## formilyV2 antd的扩展表单组件
 
-###docs:
+### docs:
 
 1. 参照formily官网安装formliy <a>https://v2.formilyjs.org/zh-CN/guide/quick-start</a>
 2. yarn add  formily-antd-extends
@@ -53,33 +53,35 @@ const App = ()=>{
 }
 ```
 
-###组件文档
+### 组件文档
 
-####1.RangeTimeOptions
+#### 1.RangeTimeOptions
 
  日期区间组件，提供了最近15天，30天，全部的选项
 
  value中包含属性 { time=[] //范围日期的起始字符串 , radio=15/30/-1 //选项值 }
 
 
-####2.LinkageSelect
+#### 2.LinkageSelect
 
 联动选择框
 
 props:{ 
-  <a>value?: { firstValue?: any; secondValue?: any };</a>  
 
-  <a>onChange?: Function</a>;
+  <font color=#0000FF>value?: { firstValue?: any; secondValue?: any };</font>  
 
-  <a>firstSelectInit: any;</a> //第一个框的初始options, 对象数组或者api/promise方法
+  <font color=#0000FF>onChange?: Function;</font> 
 
-  <a>firstSelectOptionMap?: Function;</a> //firstSelectInit 为promise时的返回结果转换函数
+  <font color=#0000FF>firstSelectInit: any;</font>  //第一个框的初始options, 对象数组或者api/promise方法
 
-  <a>firstSelectOnChangeApi: (val: any) => Promise<any>;</a> // 第一个选择框改变时的回调
+  <font color=#0000FF>firstSelectOptionMap?: Function;</font>  //firstSelectInit 为promise时的返回结果转换函数
 
-  <a>secondSelectOptionMap?: Function;</a> //firstSelectOnChangeApi返回结果转换函数，显示在第二个选择框
+  <font color=#0000FF>firstSelectOnChangeApi: (val: any) => Promise<any>;</font>  // 第一个选择框改变时的回调
 
-  <a>firstSelectProps?: { [key: string]: any };</a> // 第一个select的自定义属性
-  
-  <a>secondSelectProps?: { [key: string]: any };</a> // 第二个select的自定义属性
+  <font color=#0000FF>secondSelectOptionMap?: Function;</font> //firstSelectOnChangeApi返回结果转换函数，显示在第二个选择框
+
+  <font color=#0000FF>firstSelectProps?: { [key: string]: any };</font>  // 第一个select的自定义属性
+
+  <font color=#0000FF>secondSelectProps?: { [key: string]: any };</font>  // 第二个select的自定义属性
+
 }
