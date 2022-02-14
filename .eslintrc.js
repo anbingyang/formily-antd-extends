@@ -1,7 +1,3 @@
-/**
- * 本文件由 @rlx/umi-plugin-eslint 生成
- * 请不要手动修改!!! 有改动需求请联系 @xiaochao.yang
- */
 module.exports = {
   root: true,
   extends: ['react-app', 'prettier'],

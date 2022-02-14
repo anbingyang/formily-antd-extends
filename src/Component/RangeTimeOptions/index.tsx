@@ -24,17 +24,13 @@ const RangeTimeOptions = ({ value = {}, onChange, initValue }: TProps) => {
       switch (val) {
         case 15:
           t = [
-            moment()
-              .subtract(15, 'day')
-              .format(format),
+            moment().subtract(15, 'day').format(format),
             moment().format(format),
           ];
           break;
         case 30:
           t = [
-            moment()
-              .subtract(30, 'day')
-              .format(format),
+            moment().subtract(30, 'day').format(format),
             moment().format(format),
           ];
           break;

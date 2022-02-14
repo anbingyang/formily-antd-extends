@@ -1,9 +1,26 @@
 var __create = Object.create;
 var __defProp = Object.defineProperty;
+var __defProps = Object.defineProperties;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
 var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
 var __export = (target, all) => {
   for (var name in all)
@@ -29,6 +46,7 @@ var __toCommonJS = /* @__PURE__ */ ((cache) => {
 // src/index.ts
 var src_exports = {};
 __export(src_exports, {
+  LinkageSelect: () => LinkageSelect_default,
   RangeTimeOptions: () => RangeTimeOptions_default
 });
 
@@ -84,8 +102,63 @@ var RangeTimeOptions = ({ value = {}, onChange, initValue }) => {
   }, "\u5168\u90E8")));
 };
 var RangeTimeOptions_default = RangeTimeOptions;
+
+// src/Component/LinkageSelect/index.tsx
+var import_react2 = __toESM(require("react"));
+var import_antd2 = require("antd");
+var LinkageSelect = ({
+  value,
+  onChange,
+  firstSelectInit,
+  firstSelectOptionMap,
+  firstSelectOnChangeApi,
+  secondSelectOptionMap,
+  firstSelectProps = {},
+  secondSelectProps = {}
+}) => {
+  const [firstOptions, setFirstOptions] = (0, import_react2.useState)([]);
+  const [secondOptions, setSecondOptions] = (0, import_react2.useState)([]);
+  const firstChange = (0, import_react2.useCallback)((val, options) => {
+    firstSelectOnChangeApi(val).then((res) => {
+      secondSelectOptionMap && setSecondOptions(secondSelectOptionMap(res));
+      onChange && onChange({ firstValue: val, secondValue: null });
+    });
+  }, [firstSelectOnChangeApi, onChange, secondSelectOptionMap]);
+  const change = (0, import_react2.useCallback)((val) => {
+    onChange && onChange(__spreadProps(__spreadValues({}, value), { secondValue: val }));
+  }, [onChange, value]);
+  (0, import_react2.useEffect)(() => {
+    const init = async () => {
+      const res = await firstSelectInit();
+      firstSelectOptionMap && setFirstOptions(firstSelectOptionMap(res));
+    };
+    if (Array.isArray(firstSelectInit)) {
+      setFirstOptions(firstSelectInit);
+    } else {
+      init();
+    }
+  }, []);
+  return /* @__PURE__ */ import_react2.default.createElement("div", {
+    className: "flex flex-row w-full",
+    style: { minWidth: 200 }
+  }, /* @__PURE__ */ import_react2.default.createElement(import_antd2.Select, __spreadValues({
+    options: firstOptions,
+    onChange: firstChange,
+    allowClear: true,
+    showSearch: true,
+    value: value == null ? void 0 : value.firstValue,
+    className: "mr-2"
+  }, firstSelectProps)), /* @__PURE__ */ import_react2.default.createElement(import_antd2.Select, __spreadProps(__spreadValues({}, secondSelectProps), {
+    options: secondOptions,
+    onChange: change,
+    value: value == null ? void 0 : value.secondValue,
+    className: "mr-2 min-w-32"
+  })));
+};
+var LinkageSelect_default = LinkageSelect;
 module.exports = __toCommonJS(src_exports);
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+  LinkageSelect,
   RangeTimeOptions
 });
